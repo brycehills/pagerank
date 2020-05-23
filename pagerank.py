@@ -13,8 +13,9 @@ change2=1
 change3=1
 change5=1
 
-iterations = 0
+iterations = 0 #track num iters
 
+#using convergence epsilon 0.001
 while change1 >= 0.001 and change2 >= 0.001 and change3 >= 0.001 and change5 >= 0.001:
 
 	rank1 = .15 + .7*(rank2)
