@@ -1,0 +1,55 @@
+rank1 = 0.2
+rank2 = 0.2
+rank3 = 0.2
+rank4 = 0.2
+rank5 = 0.2
+
+temprank1 = 0
+temprank2 = 0
+temprank3 = 0
+temprank5 = 0
+
+change1=1
+change2=1
+change3=1
+change5=1
+
+iterations = 0 #track num iters
+
+#using convergence epsilon 0.0001 - forumlas depend on the d value = 0.85 
+while change1 >= 0.0001 and change2 >= 0.0001 and change3 >= 0.0001 and change5 >= 0.0001:
+
+	rank11 = rank1# save current rank
+	rank1 = (0.2/5) * .15 + .85*(rank3) #compute PR
+	change1 = abs(rank1 - temprank1) # find change since last iteration
+	temprank1 = rank1 # hold previous ranking
+	
+	rank22 = rank2# save current rank
+	rank2 = (0.2/5) * .15 + .85*(rank11)#compute PR
+	change2 = abs(rank2 - temprank2)# find change since last iteration
+	temprank2 = rank2# hold previous ranking
+	
+	rank33 = rank3# save current rank
+	rank3 = (0.2/5) * .15 + .85*(rank22/2) #compute PR
+	change3 = abs(rank3 - temprank3)# find change since last iteration
+	temprank3 = rank3# hold previous ranking
+	
+	rank44 = rank4# save current rank
+	rank4 = (0.2/5) * .15 + .85*(0) #compute PR
+
+
+	rank55 = rank5 # save current rank
+	rank5 = (0.2/5) * .15 + .85*(rank22/2 + rank55 + rank44) #compute PR
+	change5 = abs(rank5 - temprank5)# find change since last iteration
+	temprank5 = rank5# hold previous ranking
+	
+	iterations = iterations + 1 # track iterations
+		
+print("FINAL OUTPUT:")
+print("----------------------------------")
+print("Node 1 rank :", rank1)
+print("Node 2 rank :", rank2)
+print("Node 3 rank :", rank3)
+print("Node 4 rank :", rank4)
+print("Node 5 rank :", rank5)
+print("Number of iterations :", iterations)
