@@ -1,21 +1,7 @@
-rank1 = 0.2
-rank2 = 0.2
-rank3 = 0.2
-rank4 = 0.2
-rank5 = 0.2
-
-temprank1 = 0
-temprank2 = 0
-temprank3 = 0
-temprank5 = 0
-
-change1=1
-change2=1
-change3=1
-change5=1
-
+rank1, rank2, rank3, rank4, rank5 = 0.2, 0.2, 0.2, 0.2, 0.2 #init ranks
+temprank1,temprank2,temprank3,temprank5 = 0,0,0,0 #inti temp rank
+change1,change2,change3,change5=1,1,1,1 #track convergence
 iterations = 0 #track num iters
-
 #using convergence epsilon 0.0001 - forumlas depend on the d value = 0.85 
 while change1 >= 0.0001 and change2 >= 0.0001 and change3 >= 0.0001 and change5 >= 0.0001:
 
@@ -36,8 +22,7 @@ while change1 >= 0.0001 and change2 >= 0.0001 and change3 >= 0.0001 and change5 
 	
 	rank44 = rank4# save current rank
 	rank4 = (0.2/5) * .15 + .85*(0) #compute PR
-
-
+	
 	rank55 = rank5 # save current rank
 	rank5 = (0.2/5) * .15 + .85*(rank22/2 + rank55 + rank44) #compute PR
 	change5 = abs(rank5 - temprank5)# find change since last iteration
