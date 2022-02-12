@@ -9,25 +9,29 @@ while change1 >= 0.005 or change2 >= 0.005 or change3 >= 0.005 or change5 >= 0.0
 	rank1 = (0.15/5) + .85*(rank3) #compute PR
 	change1 = abs(rank1 - temprank1) # find change since last iteration
 	temprank1 = rank1 # hold previous ranking
+	print("rank1@iteration" + str(iterations) + " = " + str(rank1))
 	
 	rank22 = rank2# save current rank
 	rank2 = (0.15/5) + .85*(rank11)#compute PR
 	change2 = abs(rank2 - temprank2)# find change since last iteration
 	temprank2 = rank2# hold previous ranking
+	print("rank2@iteration" + str(iterations) + " = " + str(rank2))
 	
 	rank33 = rank3# save current rank
 	rank3 = (0.15/5) + .85*(rank22/2) #compute PR
 	change3 = abs(rank3 - temprank3)# find change since last iteration
 	temprank3 = rank3# hold previous ranking
-	
+	print("rank3@iteration" + str(iterations) + " = " + str(rank3))
 	rank44 = rank4# save current rank
 	rank4 = (0.15/5) * .85*(0) #compute PR
+	print("rank4@iteration" + str(iterations) + " = " + str(rank4))
 	
 	rank55 = rank5 # save current rank
 	rank5 = (0.15/5) + .85*(rank22/2 + rank55 + rank44) #compute PR
 	change5 = abs(rank5 - temprank5)# find change since last iteration
 	temprank5 = rank5# hold previous ranking
-	
+	print("rank5@iteration" + str(iterations) + " = " + str(rank5))
+	print('\n')
 	iterations = iterations + 1 # track iterations
 		
 print("FINAL OUTPUT:")
